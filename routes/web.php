@@ -17,4 +17,10 @@ Route::get('/books', function () {
 
 Route::post('/author/submit', 'AuthorsController@submit')->name('author-form');
 
-Route::post('/book/submit', 'BooksController@submit')->name('book-form');
+Route::post('/books', 'BooksController@submit')->name('book-form');
+
+//route::post('/books/submit', [ \App\Http\Controllers\BooksController::class, 'submit' ])->name('book-form');
+
+
+
+

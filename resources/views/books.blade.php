@@ -11,7 +11,7 @@
         <div class="alert alert-danger">
             <ul>
                 @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
+                    <li>{{ $error }}</li>
                 @endforeach
             </ul>
         </div>
@@ -42,9 +42,32 @@
             </div>
             <br>
             <input type="submit" value="Поиск" class="btn btn-success">
+            @if(count($books))
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Название книги</th>
+                            <th scope="col">Год публикации</th>
+                            <th scope="col">Краткое содержание</th>
+                            <th scope="col">Связь с авторами</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($books as $book)
+                            <tr>
+                                <th scope="row">{{ $book->id }}</th>
+                                <td>{{ $book->name }}</td>
+                                <td>{{ $book->publication_year }}</td>
+                                <td>{{ $book->summary_of_the_book }}</td>
+                                <td>{{ $book->contact_with_authors }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+        @endif
     </form>
 @endsection
-
-
-
-
